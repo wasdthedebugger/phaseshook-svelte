@@ -1,59 +1,34 @@
 <div class="sidebar">
     <div class="userIcons">
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
-        <div class="userIcon">
-            <img src="https://picsum.photos/50" alt="" />
-        </div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
+        <div class="userIcon"><img src="https://picsum.photos/50" alt=""></div>
     </div>
 </div>
 
 <style>
-    .sidebar {
+    .sidebar{
         height: 100vh;
-        width: 80px;
+        width: 100px;
         background: #333;
         color: #fff;
         display: flex;
         justify-content: space-evenly;
-        align-items: center;
+        align-items: center;    
     }
     /* if small screen change the height and width */
 
-    .userIcons {
+    .userIcons{
         display: flex;
-        background-color: red;
         gap: 40px;
         align-items: center;
         height: 100%;
@@ -63,24 +38,18 @@
         overflow-x: hidden;
         overflow-y: scroll;
     }
-    .userIcon {
-        height: 60px;
-        width: 60px;
+    .userIcon{
+        height: 50px;
+        width: 50px;
         border-radius: 50%;
     }
 
-    .userIcon img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-
     @media screen and (max-width: 800px) {
-        .sidebar {
+        .sidebar{
             height: 80px;
             width: 100%;
         }
-        .userIcons {
+        .userIcons{
             margin: 0 10px 0 10px;
             width: 90%;
             flex-direction: row;
