@@ -1,16 +1,24 @@
 <script>
-    var liked = false;
+    export let imageUrl;
 
-    var button = document.querySelector(".like");
+    let liked = false;
 
     function like() {
         liked = !liked;
     }
+
+    function downloadImage() {
+        const link = document.createElement("a");
+        link.href = imageUrl;
+        link.download = "meme.jpg";
+        link.click();
+    }
 </script>
 
-<br>
+<br />
 <div class="feed">
-    <img src="https://picsum.photos/700" alt="" class="image" />
+    <img src={imageUrl} alt="" class="image" />
+    <div class="actions">
         <button class="like" on:click={like}>
             {#if liked}
                 <svg
@@ -43,8 +51,23 @@
                 </svg>
             {/if}
         </button>
+        <button class="download" on:click={downloadImage}>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-down-circle-fill"
+                viewBox="0 0 16 16"
+            >
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                />
+            </svg></button
+        >
+    </div>
 </div>
-<br>
+<br />
 
 <style>
     .feed {
@@ -58,16 +81,34 @@
         gap: 5px;
         justify-content: center;
         align-items: left;
+        position: relative; /* Added position: relative */
     }
+
     .feed img {
         width: 100%;
         height: 100%;
     }
-
     /* when on phones, make it wider */
     @media only screen and (max-width: 600px) {
         .feed {
             width: 90%;
         }
+    }
+    .actions {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .actions button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 5px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
     }
 </style>

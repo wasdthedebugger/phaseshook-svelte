@@ -3,6 +3,31 @@
   import Footer from "./Footer.svelte";
   import Nav from "./Nav.svelte";
   import Sidebar from "./Sidebar.svelte";
+  import { onMount } from "svelte";
+
+  let feeds = [];
+
+  async function fetchMemes() {
+    try {
+      let memesFetched = 0;
+      while (memesFetched < 10) {
+        const response = await fetch(
+          "https://www.reddit.com/r/memes/random.json"
+        );
+        const data = await response.json();
+        const meme = data[0]?.data?.children?.[0];
+        if (meme) {
+          const imageUrl = meme.data.url_overridden_by_dest;
+          feeds = [...feeds, { imageUrl }];
+          memesFetched++;
+        }
+      }
+    } catch (error) {
+      console.error("Failed to fetch memes:", error);
+    }
+  }
+
+  onMount(fetchMemes);
 </script>
 
 <Nav />
@@ -10,9 +35,9 @@
 <div class="main">
   <Sidebar />
   <div class="scroll">
-    <Feed />
-    <Feed />
-    <Feed />
+    {#each feeds as feed}
+      <Feed imageUrl={feed.imageUrl} />
+    {/each}
   </div>
 </div>
 <br />
